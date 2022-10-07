@@ -81,5 +81,12 @@ class RestaurantTest {
         int actualAmount = restaurant.getTotalAmount(items);
         assertEquals(expectedAmount, actualAmount);
     }
+
+    @Test
+    public void get_total_amount_when_item_is_null_should_throw_exception(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            restaurant.getTotalAmount(null);
+        });
+    }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

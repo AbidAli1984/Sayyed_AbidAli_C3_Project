@@ -62,4 +62,19 @@ public class Restaurant {
     public String getName() {
         return name;
     }
+
+    public int getTotalAmount(List<String> items) {
+        if(items == null)
+            throw new IllegalArgumentException();
+
+        int totalAmount = 0;
+
+        for(String menuName : items){
+            Item menu = findItemByName(menuName);
+            if(menu != null){
+                totalAmount += menu.getPrice();
+            }
+        }
+        return totalAmount;
+    }
 }
